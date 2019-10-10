@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>FaceRec. - {{ title }} </title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+  <meta property="og:title" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
+
+  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+
+  <!-- Place your favicon.ico and apple-touch-icon.png in the template root directory -->
+  <!-- <link href="favicon.ico" rel="shortcut icon"> -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <!-- <link href="{{ url_for('static',filename = 'bootstrap.min.css') }}" rel="stylesheet"> -->
+
+  <!-- Libraries CSS Files -->
+  <!-- <link href="{{ url_for('static',filename = 'font-awesome.min.css') }}" rel="stylesheet"> -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="{{ url_for('static',filename = 'animate.min.css') }}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{{ url_for('static',filename = 'style.css') }}" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Imperial
+    Theme URL: https://bootstrapmade.com/imperial-free-onepage-bootstrap-theme/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+</head>
+
+<body>
+  <div id="preloader"></div>
+
+  <!--==========================
+  Hero Section
+  ============================-->
+  <!-- <section id="hero">
+    <div class="hero-container">
+      <div class="wow fadeIn">
+        <div class="hero-logo">
+          <img class="" src="{{ url_for('static',filename='logo.png') }}" alt="Imperial">
+        </div>
+
+        <h1>Welcome to FaceRec.</h1>
+        <h2>We <span class="rotating">detect, recognize, create</span> faces</h2>
+        <div class="actions">
+          <a href="#services" class="btn-get-started">Get Strated</a>
+          <a href="#about" class="btn-services">About Us</a>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!--==========================
+  Header Section
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <a href="/"><img src="{{ url_for('static',filename='logo.png') }}" alt="" title="" /></img></a>
+        <!-- Uncomment below if you prefer to use a text image -->
+        <!--<h1><a href="#hero">Header 1</a></h1>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="/">Home</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+      <!-- #nav-menu-container -->
+    </div>
+  </header>
+  <!-- #header -->
+  <section id="services">
+    <div class="container wow fadeInUp">
+      <div class="row">
+          <div class="col-md-12">
+            <h3 class="section-title">Today's Attendence</h3>
+            <div class="section-title-divider"></div>
+            <p class="section-description">CS-1</p>
+          </div>
+        </div>
+    <div class="container">
+    <table class="table table-hover table-responsive">
+      <thead>
+        <tr>
+          <th scope="col">Serial No.</th>
+          <th scope="col">Name</th>
+          <th scope="col">Presence</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for index,row in df.head().iterrows() %}
+            <tr>
+              <td>{{index + 1}}</td>
+              <td>{{row['Name']}}</td>
+              <td>{{row['Status']}}</td>
+            </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  </div>
+  </section>
+  
+  <!-- Subscribe Section -->
+  <section id="subscribe">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <h3 class="subscribe-title">Mark Attendence Again</h3>
+          <p class="subscribe-text">If the attendence is taken wrong then click here to mark it again.</p>
+        </div>
+        <div class="col-md-4 subscribe-btn-container">
+          <a class="subscribe-btn" href="/program">Mark</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--==========================
+  Team Section
+  ============================-->
+  <section id="team">
+    <div class="container wow fadeInUp">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="section-title">Our Team</h3>
+          <div class="section-title-divider"></div>
+          <p class="section-description">We believe in success</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="member">
+            <div class="pic"><img src="{{ url_for('static',filename='Anuj-1.jpeg') }}" alt=""></div>
+            <h4>Anuj Rana</h4>
+            <span>Full Stack Developer</span>
+            <div class="social">
+              <a href=""><i class="fa fa-twitter"></i></a>
+              <a href=""><i class="fa fa-facebook"></i></a>
+              <a href=""><i class="fa fa-google-plus"></i></a>
+              <a href=""><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!--==========================
+  About Section
+  ============================-->
+  <section id="about">
+    <div class="container wow fadeInUp">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="section-title">About Us</h3>
+          <div class="section-title-divider"></div>
+          <p class="section-description">We develop a face recognition attendence system using face_recognition library of python</p>
+        </div>
+      </div>
+    </div>
+    <div class="container about-container wow fadeInUp">
+      <div class="row">
+
+        <div class="col-lg-6 about-img">
+          <img src="{{ url_for('static',filename='about-img.jpg') }}" alt="">
+        </div>
+
+        <div class="col-md-6 about-content">
+          <h2 class="about-title">Simplest Face Recognition System</h2>
+          <p class="about-text">
+            Recognize and manipulate faces from Python or from the command line with the world's simplest face recognition library.
+          </p>
+          <p class="about-text">
+            Built using <a href="http://dlib.net/">dlib</a>'s state-of-the-art face recognition built with deep learning. The model has an accuracy of 99.38% on the <a href="http://vis-www.cs.umass.edu/lfw/"> Labeled Faces in the Wild</a> benchmark.
+          </p>
+          <p class="about-text">
+            This also provides a simple <a href="https://pypi.org/project/face_recognition/">face_recognition</a> command line tool that lets you do face recognition on a folder of images from the command line!
+          </p>
+          <p class="about-text">
+            Special thanks to  <a href="https://github.com/ageitgey">Adam Ageitgey</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--==========================
+  Contact Section
+  ============================-->
+  <section id="contact">
+    <div class="container wow fadeInUp">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="section-title">Contact Us</h3>
+          <div class="section-title-divider"></div>
+          <p class="section-description">Contact as a friend not a geek.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 col-md-push-2">
+          <div class="info">
+            <div>
+              <i class="fa fa-map-marker"></i>
+              <p>A115,Rajat Vihar Duplex<br>Sector 62, Noida<br>Uttar Pradesh, India </p>
+            </div>
+
+            <div>
+              <i class="fa fa-envelope"></i>
+              <p>anujrana.sid55@gmail.com</p>
+            </div>
+
+            <div>
+              <i class="fa fa-phone"></i>
+              <p>+91 8279867522</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-md-5 col-md-push-2">
+          <div class="form">
+            <div id="sendmessage">Your message has been sent. Thank you!</div>
+            <div id="errormessage"></div>
+            <form action="" method="post" role="form" class="contactForm">
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validation"></div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- Required JavaScript Libraries -->
+  <script src="{{ url_for('static',filename='jquery.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='hoverIntent.js') }}"></script>
+  <script src="{{ url_for('static',filename='superfish.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='morphext.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='wow.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='sticky.js') }}"></script>
+  <script src="{{ url_for('static',filename='easing.js') }}"></script>
+
+  <!-- Template Specisifc Custom Javascript File -->
+  <script src="{{ url_for('static',filename='custom.js') }}"></script>
+
+  <script src="{{ url_for('static',filename='contactform.js') }}"></script>
+
+
+</body>
+
+</html>
