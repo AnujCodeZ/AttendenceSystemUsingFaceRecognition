@@ -23,6 +23,6 @@ Libraries to be installed
 After installing these libraries clone or download this and then run python programme run.py
 Open the link it created.
 
-This project is stillin working.
+This project is still in working.
 
 Thanks.
